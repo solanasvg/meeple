@@ -1,0 +1,1403 @@
+<html><head><base href="." />
+<style>
+/* Keeping all existing styles */
+/* Root variables */
+:root {
+  --hero-background: #000;
+  --nav-height: 44px;
+  --nav-background: rgba(0, 0, 0, 0.8);
+  --primary-color: #2997ff;
+  --text-color: #f5f5f7;
+}
+
+/* Modified and existing styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: #fff;
+}
+
+.nav {
+  background: var(--nav-background);
+  backdrop-filter: saturate(180%) blur(20px);
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.nav ul li {
+  margin: 0 15px;
+}
+
+.nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.nav ul li a:hover {
+  opacity: 1;
+}
+
+.nav img {
+  height: 18px;
+  width: auto;
+  transition: opacity 0.2s;
+}
+
+.nav img:hover {
+  opacity: 0.8;
+}
+
+/* Adjust the first nav item to properly contain the logo */
+.nav ul li:first-child {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.hero {
+  background: var(--hero-background);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  text-align: center;
+  padding-top: var(--nav-height);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Updated hero-background style */
+.hero-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 800px;
+  font-weight: bold;
+  z-index: 0;
+  color: white;
+  text-shadow: 0 0 100px rgba(255, 0, 0, 0.8),
+               0 0 200px rgba(255, 0, 0, 0.6),
+               0 0 300px rgba(255, 0, 0, 0.4);
+  opacity: 0.15;
+  background: radial-gradient(circle at center, 
+    rgba(255, 0, 0, 0.8) 0%,
+    rgba(255, 0, 0, 0.6) 30%,
+    rgba(255, 0, 0, 0.4) 50%,
+    rgba(255, 0, 0, 0.2) 70%,
+    rgba(255, 0, 0, 0) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero h1, .hero h2, .hero-links {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+
+.hero h2 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.hero-links {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.hero-links a:hover {
+  text-decoration: underline;
+}
+
+/* Rest of the existing styles */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+.product-tile {
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fbfbfd;
+  padding: 20px;
+}
+
+.product-tile h3 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.product-tile p {
+  font-size: 21px;
+  margin-bottom: 15px;
+}
+
+.product-links {
+  display: flex;
+  gap: 20px;
+}
+
+.product-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.product-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .nav ul {
+    padding: 0 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    justify-content: flex-start;
+  }
+
+  .nav ul li {
+    margin: 0 10px;
+  }
+
+  .nav ul li a {
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero h2 {
+    font-size: 21px;
+    padding: 0 20px;
+  }
+
+  .hero-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-links a {
+    font-size: 18px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .product-tile {
+    height: 400px;
+    padding: 15px;
+  }
+
+  .product-tile h3 {
+    font-size: 32px;
+  }
+
+  .product-tile p {
+    font-size: 18px;
+  }
+
+  .product-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .product-links a {
+    font-size: 16px;
+  }
+
+  .hero-background {
+    font-size: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+  }
+
+  .product-tile {
+    height: 350px;
+  }
+
+  .product-tile h3 {
+    font-size: 28px;
+  }
+
+  .hero-background {
+    font-size: 300px;
+  }
+}
+
+/* Add viewport meta tag for proper mobile scaling */
+.mephone-container {
+  background: #000;  /* Change to black background */
+  min-height: 100vh;
+  padding: 80px 20px;
+}
+
+.mephone-header {
+  text-align: center;
+  margin-bottom: 70px;
+  color: #fff;  /* Change text color to white */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mephone-header h1 {
+  font-size: 56px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: -0.005em;
+  background: linear-gradient(90deg, #fff, #f2f2f2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mephone-header p {
+  font-size: 27px;
+  color: #86868b;  /* Updated color */
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.mephone-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));  /* Larger cards */
+  gap: 35px;
+  padding: 0 40px;
+}
+
+.mephone-card {
+  background: #151516;  /* Dark background */
+  border-radius: 30px;  /* More rounded corners */
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 500px;  /* Increased height to accommodate images */
+  position: relative;
+  overflow: hidden;
+}
+
+.mephone-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(130deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mephone-card:hover::before {
+  opacity: 1;
+}
+
+.mephone-card h3 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #fff;  /* White text */
+  font-weight: 600;
+  letter-spacing: -0.003em;
+}
+
+.mephone-card p {
+  font-size: 19px;
+  color: #86868b;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* Remove the year class since we're removing dates */
+.mephone-card .year {
+  display: none;
+}
+
+.mephone-card .buy-button {
+  background: #0071e3;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 980px;
+  text-decoration: none;
+  font-size: 17px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 160px;
+}
+
+.mephone-card .buy-button:hover {
+  background: #0077ed;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 113, 227, 0.3);
+}
+
+/* Updated responsive styles */
+@media (max-width: 768px) {
+  .mephone-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+  }
+  
+  .mephone-card {
+    padding: 40px 30px;
+    min-height: 350px;
+  }
+}
+
+.device-image {
+  width: 200px;
+  height: 300px;
+  margin: 20px auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+}
+
+.mephone-card:hover .device-image {
+  transform: translateY(-10px) scale(1.02);
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+}
+
+.device-image path,
+.device-image rect,
+.device-image circle {
+  transition: all 0.3s ease;
+}
+
+.mephone-card:hover .device-image path,
+.mephone-card:hover .device-image rect,
+.mephone-card:hover .device-image circle {
+  filter: brightness(1.1);
+}
+
+/* Add these CSS rules to your existing styles */
+.store-container {
+  padding: 80px 20px;
+  background: #fff;
+  min-height: 100vh;
+  display: none; /* Initially hidden */
+}
+
+.store-header {
+  text-align: center;
+  margin-bottom: 70px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.store-header h1 {
+  font-size: 56px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: -0.005em;
+  color: #1d1d1f;
+}
+
+.store-header p {
+  font-size: 27px;
+  color: #86868b;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.product-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto 80px;
+}
+
+.category-card {
+  background: #fbfbfd;
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.category-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.category-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1d1d1f;
+}
+
+.category-card p {
+  font-size: 17px;
+  color: #86868b;
+  margin-bottom: 15px;
+}
+
+.category-card a {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.category-card a:hover {
+  text-decoration: underline;
+}
+
+.featured-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.featured-section h2 {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #1d1d1f;
+}
+
+.featured-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.product-card h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1d1d1f;
+}
+
+.product-card p {
+  font-size: 17px;
+  color: #86868b;
+  margin-bottom: 15px;
+}
+
+.product-card .price {
+  font-size: 17px;
+  color: #1d1d1f;
+  margin-bottom: 20px;
+}
+
+.buy-button {
+  background: #0071e3;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 980px;
+  text-decoration: none;
+  font-size: 17px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background: #0077ed;
+}
+
+@media (max-width: 768px) {
+  .store-header h1 {
+    font-size: 40px;
+  }
+  
+  .store-header p {
+    font-size: 21px;
+  }
+  
+  .product-categories {
+    gap: 20px;
+  }
+  
+  .category-card {
+    padding: 20px;
+  }
+  
+  .featured-section h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mephone-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+  }
+  
+  .mephone-card {
+    padding: 40px 30px;
+    min-height: 350px;
+  }
+}
+
+.device-image {
+  width: 200px;
+  height: 300px;
+  margin: 20px auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+}
+
+.mephone-card:hover .device-image {
+  transform: translateY(-10px) scale(1.02);
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+}
+
+.device-image path,
+.device-image rect,
+.device-image circle {
+  transition: all 0.3s ease;
+}
+
+.mephone-card:hover .device-image path,
+.mephone-card:hover .device-image rect,
+.mephone-card:hover .device-image circle {
+  filter: brightness(1.1);
+}
+
+/* Add these CSS rules to handle showing/hiding content */
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+/* Add initial state for mephone page */
+#mephonePage {
+  display: none;
+}
+
+/* Add to CSS section */
+/* Created by Sean Sovidaray */
+.hidden-credit {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 8px;
+  opacity: 0.1;
+  color: #999;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Add animation to make it barely visible occasionally */
+@keyframes fade {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.2; }
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+  <nav class="nav">
+    <ul>
+      <li>
+        <img src="https://rziyq376po2is_q_tecc.c.websim.ai/IMG_2128.png" alt="Meeple Logo" style="height: 18px; width: auto; margin-top: 13px;">
+      </li>
+      <li><a href="https://www.meeple.com/store">Store</a></li>
+      <li><a href="https://www.meeple.com/meecintosh">Meecintosh</a></li>
+      <li><a href="https://www.meeple.com/mephone">MePhone</a></li>
+      <li><a href="https://www.meeple.com/mepad">MePad</a></li>
+      <li><a href="https://www.meeple.com/mewatch">MeWatch</a></li>
+      <li><a href="https://www.meeple.com/mepods">MePods</a></li>
+      <li><a href="https://www.meeple.com/mebook">MeBook</a></li>
+      <li><a href="https://www.meeple.com/metag">MeTag</a></li>
+      <li><a href="https://www.meeple.com/tv">TV & Home</a></li>
+      <li><a href="https://www.meeple.com/support">Support</a></li>
+      <li><a href="https://www.meeple.com/melife">MeLife</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-background">X</div>
+    <h1>MePhone X</h1>
+    <h2>Titanium. So strong. So light. So Pro.</h2>
+    <div class="hero-links">
+      <a href="https://www.meeple.com/mephone-x/learn-more">Learn more ></a>
+      <a href="https://www.meeple.com/mephone-x/buy">Buy ></a>
+    </div>
+  </section>
+
+  <div class="product-grid">
+    <div class="product-tile">
+      <h3>MePhone X </h3>
+      <p>New camera. New design. Newphoria.</p>
+      <div class="product-links">
+        <a href="https://www.meeple.com/mephone-15/learn-more">Learn more ></a>
+        <a href="https://www.meeple.com/mephone-15/buy">Buy ></a>
+      </div>
+    </div>
+
+    <div class="product-tile">
+      <h3>MeBook Air</h3>
+      <p>Supercharged by M2</p>
+      <div class="product-links">
+        <a href="https://www.meeple.com/mebook-air/learn-more">Learn more ></a>
+        <a href="https://www.meeple.com/mebook-air/buy">Buy ></a>
+      </div>
+    </div>
+
+    <div class="product-tile">
+      <h3>MeTag</h3>
+      <p>Find what matters.</p>
+      <div class="product-links">
+        <a href="https://www.meeple.com/metag/learn-more">Learn more ></a>
+        <a href="https://www.meeple.com/metag/buy">Buy ></a>
+      </div>
+    </div>
+
+    <div class="product-tile">
+      <h3>MeBook Pro</h3>
+      <p>Mind-blowing. Head-turning.</p>
+      <div class="product-links">
+        <a href="https://www.meeple.com/mebook-pro/learn-more">Learn more ></a>
+        <a href="https://www.meeple.com/mebook-pro/buy">Buy ></a>
+      </div>
+    </div>
+
+    <div class="product-tile">
+      <h3>Compare MeBooks</h3>
+      <p>Find your perfect MeBook.</p>
+      <div class="product-links">
+        <a href="https://www.meeple.com/mebook/compare">Compare all models ></a>
+      </div>
+    </div>
+
+    <div class="product-tile">
+      <h3>MeLife</h3>
+      <p>The Future is So Yesterday</p>
+      <div class="product-links">
+        <a href="https://www.meeple.com/melife/learn-more">Learn more ></a>
+        <a href="https://www.meeple.com/melife/subscribe">Subscribe ></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mephone-container" id="mephonePage">
+    <div class="mephone-header">
+      <h1>MePhone</h1>
+      <p>The complete MePhone lineup through history</p>
+    </div>
+    <div class="mephone-grid">
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="10" y="10" width="80" height="160" rx="15" fill="#333"/>
+          <rect x="35" y="10" width="30" height="7" rx="3" fill="#000"/>
+        </svg>
+        <h3>MePhone X</h3>
+        <p>Titanium. So strong. So light. So Pro.</p>
+        <a href="https://www.meeple.com/mephone-x/buy" class="buy-button">Buy</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="10" y="10" width="80" height="160" rx="10" fill="#444"/>
+          <circle cx="50" cy="155" r="7" fill="#222"/>
+        </svg>
+        <h3>MePhone 8</h3>
+        <p>A new generation of MePhone.</p>
+        <a href="https://www.meeple.com/mephone-8/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="10" y="10" width="80" height="160" rx="10" fill="#444"/>
+          <circle cx="50" cy="155" r="7" fill="#222"/>
+        </svg>
+        <h3>MePhone 7 Plus</h3>
+        <p>Dual cameras. Twice the excellence.</p>
+        <a href="https://www.meeple.com/mephone-7-plus/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="10" y="10" width="80" height="160" rx="10" fill="#444"/>
+          <circle cx="50" cy="155" r="7" fill="#222"/>
+        </svg>
+        <h3>MePhone 7</h3>
+        <p>This changes everything.</p>
+        <a href="https://www.meeple.com/mephone-7/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 6s Plus</h3>
+        <p>The only thing that's changed is everything.</p>
+        <a href="https://www.meeple.com/mephone-6s-plus/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 6s</h3>
+        <p>The only thing that's changed is everything.</p>
+        <a href="https://www.meeple.com/mephone-6s/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="10" y="10" width="80" height="160" rx="10" fill="#444"/>
+          <circle cx="50" cy="155" r="7" fill="#222"/>
+        </svg>
+        <h3>MePhone 6</h3>
+        <p>Bigger than bigger.</p>
+        <a href="https://www.meeple.com/mephone-6/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 5c</h3>
+        <p>For the colorful.</p>
+        <a href="https://www.meeple.com/mephone-5c/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 5s</h3>
+        <p>Forward thinking.</p>
+        <a href="https://www.meeple.com/mephone-5x/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 5</h3>
+        <p>The biggest thing to happen to MePhone since MePhone.</p>
+        <a href="https://www.meeple.com/mephone-5/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 4S</h3>
+        <p>The most amazing MePhone yet.</p>
+        <a href="https://www.meeple.com/mephone-4s/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 4</h3>
+        <p>This changes everything. Again.</p>
+        <a href="https://www.meeple.com/mephone-4/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 3GS</h3>
+        <p>The fastest, most powerful MePhone yet.</p>
+        <a href="https://www.meeple.com/mephone-3gs/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone 3G</h3>
+        <p>The first MePhone with 3G.</p>
+        <a href="https://www.meeple.com/mephone-3g/specs" class="buy-button">Learn more</a>
+      </div>
+      <div class="mephone-card">
+        <svg viewBox="0 0 100 180" class="device-image">
+          <rect x="15" y="10" width="70" height="160" rx="5" fill="#666"/>
+          <rect x="45" y="150" width="10" height="10" rx="2" fill="#222"/>
+        </svg>
+        <h3>MePhone </h3>
+        <p>The one that started it all.</p>
+        <a href="https://www.meeple.com/mephone-2g/specs" class="buy-button">Learn more</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="store-container">
+    <header class="store-header">
+      <h1>Meeple Store</h1>
+      <p>The best way to buy the products you love.</p>
+    </header>
+
+    <div class="product-categories">
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <rect x="10" y="20" width="80" height="60" rx="5" fill="#333"/>
+          <rect x="45" y="85" width="10" height="5" fill="#333"/>
+          <rect x="35" y="90" width="30" height="2" fill="#333"/>
+        </svg>
+        <h3>Meecintosh</h3>
+        <p>Supercharged by M2</p>
+        <a href="https://www.meeple.com/meecintosh/shop">Shop Now ></a>
+      </div>
+
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <rect x="20" y="10" width="60" height="80" rx="10" fill="#333"/>
+          <circle cx="50" cy="75" r="5" fill="#666"/>
+        </svg>
+        <h3>MePhone</h3>
+        <p>The latest MePhone models</p>
+        <a href="https://www.meeple.com/mephone/shop">Shop Now ></a>
+      </div>
+
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <rect x="10" y="20" width="80" height="60" rx="5" fill="#333"/>
+        </svg>
+        <h3>MePad</h3>
+        <p>Magical like never before</p>
+        <a href="https://www.meeple.com/mepad/shop">Shop Now ></a>
+      </div>
+
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <rect x="30" y="30" width="40" height="40" rx="10" fill="#333"/>
+          <rect x="35" y="20" width="30" height="10" fill="#333"/>
+          <rect x="35" y="70" width="30" height="10" fill="#333"/>
+        </svg>
+        <h3>MeWatch</h3>
+        <p>A healthy leap ahead</p>
+        <a href="https://www.meeple.com/mewatch/shop">Shop Now ></a>
+      </div>
+
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <path d="M30,40 L70,40 C75,40 75,60 70,60 L30,60 C25,60 25,40 30,40" fill="#333"/>
+          <circle cx="35" cy="50" r="5" fill="#666"/>
+          <circle cx="65" cy="50" r="5" fill="#666"/>
+        </svg>
+        <h3>MePods</h3>
+        <p>Sound like never before</p>
+        <a href="https://www.meeple.com/mepods/shop">Shop Now ></a>
+      </div>
+
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <rect x="20" y="30" width="60" height="40" rx="5" fill="#333"/>
+          <path d="M40,75 L60,75 L55,85 L45,85 Z" fill="#333"/>
+        </svg>
+        <h3>TV & Home</h3>
+        <p>The future of television</p>
+        <a href="https://www.meeple.com/tv/shop">Shop Now ></a>
+      </div>
+
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <rect x="30" y="70" width="40" height="10" rx="2" fill="#333"/>
+          <circle cx="50" cy="45" r="25" fill="#333"/>
+          <path d="M35,35 A20,20 0 0,1 65,35" 
+                fill="none" 
+                stroke="#444" 
+                stroke-width="2"/>
+        </svg>
+        <h3>MeLife</h3>
+        <p>The Future is So Yesterday</p>
+        <a href="https://www.meeple.com/melife/learn-more">Learn more ></a>
+      </div>
+
+      <!-- New category card for MeTag -->
+      <div class="category-card">
+        <svg class="category-icon" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="#333"/>
+          <circle cx="50" cy="50" r="25" fill="none" stroke="#444" stroke-width="2"/>
+          <image x="35" y="35" width="30" height="30" href="IMG_2128.png" style="filter: brightness(0.8)"/>
+        </svg>
+        <h3>MeTag</h3>
+        <p>Find what matters.</p>
+        <a href="https://www.meeple.com/metag/shop">Shop Now ></a>
+      </div>
+    </div>
+
+    <section class="featured-section">
+      <h2>Featured Products</h2>
+      <div class="featured-products">
+        <div class="product-card">
+          <svg class="product-image" viewBox="0 0 200 200">
+            <rect x="40" y="20" width="120" height="160" rx="15" fill="#333"/>
+            <rect x="45" y="25" width="110" height="150" fill="#444"/>
+          </svg>
+          <h4>MePhone X</h4>
+          <p>Titanium. So strong. So light. So Pro.</p>
+          <p class="price">From $999</p>
+          <a href="https://www.meeple.com/mephone-x/buy" class="buy-button">Buy</a>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-image" viewBox="0 0 200 200">
+            <rect x="20" y="40" width="160" height="120" rx="10" fill="#333"/>
+            <rect x="25" y="45" width="150" height="110" fill="#444"/>
+          </svg>
+          <h4>MeBook Air</h4>
+          <p>Supercharged by M2</p>
+          <p class="price">From $1199</p>
+          <a href="https://www.meeple.com/mebook-air/buy" class="buy-button">Buy</a>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-image" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="60" fill="#333"/>
+            <circle cx="100" cy="100" r="50" fill="none" stroke="#444" stroke-width="3"/>
+            <circle cx="100" cy="100" r="45" fill="none" stroke="#555" stroke-width="1"/>
+            <image x="70" y="70" width="60" height="60" href="IMG_2128.png" style="filter: brightness(0.8)"/>
+          </svg>
+          <h4>MeTag</h4>
+          <p>Find what matters.</p>
+          <p class="price">From $29</p>
+          <a href="https://www.meeple.com/metag/buy" class="buy-button">Buy</a>
+        </div>
+
+        <div class="product-card">
+          <svg class="product-image" viewBox="0 0 200 200">
+            <path d="M60,80 L140,80 C150,80 150,120 140,120 L60,120 C50,120 50,80 60,80" fill="#333"/>
+            <circle cx="70" cy="100" r="10" fill="#444"/>
+            <circle cx="130" cy="100" r="10" fill="#444"/>
+          </svg>
+          <h4>MePods Pro</h4>
+          <p>Magic like you've never heard</p>
+          <p class="price">From $249</p>
+          <a href="https://www.meeple.com/mepods-pro/buy" class="buy-button">Buy</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="hidden-credit">Made with ❤️ by Sean Sovidaray</div>
+
+<script>
+// Add smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Add navbar transparency effect on scroll
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 50) {
+        nav.style.background = 'rgba(0, 0, 0, 0.9)';
+    } else {
+        nav.style.background = 'rgba(0, 0, 0, 0.8)';
+    }
+});
+
+// Add fade-in animation for products when they come into view
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.product-tile').forEach(tile => {
+    tile.style.opacity = '0';
+    tile.style.transform = 'translateY(20px)';
+    tile.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+    observer.observe(tile);
+});
+
+// Add touch event handling for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+const navList = document.querySelector('.nav ul');
+
+navList.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+navList.addEventListener('touchmove', e => {
+    e.preventDefault();
+    touchEndX = e.changedTouches[0].screenX;
+    const diffX = touchStartX - touchEndX;
+    navList.scrollLeft += diffX / 5;
+}, false);
+
+// Replace the MePhone navigation event listener with this updated version
+document.querySelector('a[href="https://www.meeple.com/mephone"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Get references to all sections
+    const mainContent = document.querySelector('.hero');
+    const productGrid = document.querySelector('.product-grid');
+    const mephonePage = document.getElementById('mephonePage');
+    
+    // Hide main content
+    mainContent.style.display = 'none';
+    productGrid.style.display = 'none';
+    
+    // Show MePhone page
+    mephonePage.style.display = 'block';
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+});
+
+// Add a back button or navigation handler if needed
+window.addEventListener('popstate', function(e) {
+    const mainContent = document.querySelector('.hero');
+    const productGrid = document.querySelector('.product-grid');
+    const mephonePage = document.getElementById('mephonePage');
+    
+    mainContent.style.display = 'flex';
+    productGrid.style.display = 'grid';
+    mephonePage.style.display = 'none';
+});
+
+// Add fade-in animation for MePhone cards
+const mePhoneObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.mephone-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+    mePhoneObserver.observe(card);
+});
+
+// Add this function to create device SVG illustrations
+function createDeviceImage(generation) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 100 180");
+  svg.classList.add("device-image");
+  
+  if (generation >= 'X') {
+    // Modern all-screen design
+    // Add gradient background
+    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+    gradient.setAttribute("id", "phoneGradient");
+    gradient.setAttribute("gradientTransform", "rotate(45)");
+    
+    const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop1.setAttribute("offset", "0%");
+    stop1.setAttribute("stop-color", "#666");
+    
+    const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop2.setAttribute("offset", "100%");
+    stop2.setAttribute("stop-color", "#333");
+    
+    gradient.appendChild(stop1);
+    gradient.appendChild(stop2);
+    defs.appendChild(gradient);
+    svg.appendChild(defs);
+
+    // Phone body with gradient
+    const phone = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    phone.setAttribute("x", "10");
+    phone.setAttribute("y", "10");
+    phone.setAttribute("width", "80");
+    phone.setAttribute("height", "160");
+    phone.setAttribute("rx", "15");
+    phone.setAttribute("fill", "url(#phoneGradient)");
+    
+    // Add shine effect
+    const shine = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    shine.setAttribute("d", "M15 20 L85 20 L85 160 L15 160");
+    shine.setAttribute("fill", "none");
+    shine.setAttribute("stroke", "rgba(255,255,255,0.1)");
+    shine.setAttribute("stroke-width", "1");
+    
+    // Notch with more detail
+    const notch = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    notch.setAttribute("d", "M35 10 H65 Q68 10 68 13 V17 Q68 20 65 20 H35 Q32 20 32 17 V13 Q32 10 35 10");
+    notch.setAttribute("fill", "#000");
+    
+    svg.appendChild(phone);
+    svg.appendChild(shine);
+    svg.appendChild(notch);
+    
+  } else if (generation >= '6') {
+    // Rounded rectangle design with metallic effect
+    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+    gradient.setAttribute("id", "metallic");
+    gradient.setAttribute("gradientTransform", "rotate(45)");
+    
+    const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop1.setAttribute("offset", "0%");
+    stop1.setAttribute("stop-color", "#888");
+    
+    const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop2.setAttribute("offset", "50%");
+    stop2.setAttribute("stop-color", "#444");
+    
+    const stop3 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop3.setAttribute("offset", "100%");
+    stop3.setAttribute("stop-color", "#888");
+    
+    gradient.appendChild(stop1);
+    gradient.appendChild(stop2);
+    gradient.appendChild(stop3);
+    defs.appendChild(gradient);
+    svg.appendChild(defs);
+
+    const phone = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    phone.setAttribute("x", "10");
+    phone.setAttribute("y", "10");
+    phone.setAttribute("width", "80");
+    phone.setAttribute("height", "160");
+    phone.setAttribute("rx", "10");
+    phone.setAttribute("fill", "url(#metallic)");
+    
+    // Screen
+    const screen = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    screen.setAttribute("x", "15");
+    screen.setAttribute("y", "20");
+    screen.setAttribute("width", "70");
+    screen.setAttribute("height", "120");
+    screen.setAttribute("fill", "#111");
+    screen.setAttribute("rx", "2");
+    
+    // Home button with detail
+    const homeButton = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    homeButton.setAttribute("cx", "50");
+    homeButton.setAttribute("cy", "155");
+    homeButton.setAttribute("r", "7");
+    homeButton.setAttribute("fill", "#222");
+    
+    const homeRing = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    homeRing.setAttribute("cx", "50");
+    homeRing.setAttribute("cy", "155");
+    homeRing.setAttribute("r", "8");
+    homeRing.setAttribute("fill", "none");
+    homeRing.setAttribute("stroke", "#999");
+    homeRing.setAttribute("stroke-width", "0.5");
+    
+    svg.appendChild(phone);
+    svg.appendChild(screen);
+    svg.appendChild(homeButton);
+    svg.appendChild(homeRing);
+    
+  } else {
+    // Classic design with more detail
+    const phone = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    phone.setAttribute("x", "15");
+    phone.setAttribute("y", "10");
+    phone.setAttribute("width", "70");
+    phone.setAttribute("height", "160");
+    phone.setAttribute("rx", "5");
+    phone.setAttribute("fill", "#666");
+    
+    // Screen bezel
+    const bezel = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    bezel.setAttribute("x", "20");
+    bezel.setAttribute("y", "25");
+    bezel.setAttribute("width", "60");
+    bezel.setAttribute("height", "100");
+    bezel.setAttribute("fill", "#222");
+    
+    // Speaker
+    const speaker = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    speaker.setAttribute("x", "45");
+    speaker.setAttribute("y", "15");
+    speaker.setAttribute("width", "10");
+    speaker.setAttribute("height", "2");
+    speaker.setAttribute("rx", "1");
+    speaker.setAttribute("fill", "#444");
+    
+    // Home button with square design
+    const homeButton = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    homeButton.setAttribute("x", "45");
+    homeButton.setAttribute("y", "140");
+    homeButton.setAttribute("width", "10");
+    homeButton.setAttribute("height", "10");
+    homeButton.setAttribute("rx", "2");
+    homeButton.setAttribute("fill", "#444");
+    
+    svg.appendChild(phone);
+    svg.appendChild(bezel);
+    svg.appendChild(speaker);
+    svg.appendChild(homeButton);
+  }
+  return svg;
+}
+
+// Add this to your existing JavaScript
+document.querySelectorAll('.mephone-card').forEach(card => {
+  const title = card.querySelector('h3').textContent;
+  const generation = title.replace('MePhone ', '');
+  const deviceImage = createDeviceImage(generation);
+  card.insertBefore(deviceImage, card.firstChild);
+});
+
+// Update the click handlers for buy buttons to show a purchase confirmation
+document.querySelectorAll('.product-links a, .hero-links a, .buy-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (this.textContent.toLowerCase().includes('buy')) {
+            const product = this.closest('.product-tile, .mephone-card, .product-card, .hero')?.querySelector('h3, h1')?.textContent || 'product';
+            const price = this.closest('.product-card')?.querySelector('.price')?.textContent.replace('From ', '') || '$999';
+            
+            if (confirm(`Would you like to purchase ${product} for ${price}?`)) {
+                alert(`Thank you for purchasing ${product}! Your order has been confirmed.\n\nA confirmation email will be sent shortly.`);
+            }
+        } else {
+            const product = this.closest('.product-tile, .mephone-card, .product-card, .hero')?.querySelector('h3, h1')?.textContent || 'product';
+            alert(`Learn more about ${product} coming soon!`);
+        }
+    });
+});
+
+// Update category card links to allow purchasing as well
+document.querySelectorAll('.category-card a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.closest('.category-card').querySelector('h3').textContent;
+        if (this.textContent.toLowerCase().includes('shop')) {
+            if (confirm(`Would you like to browse ${category} products?`)) {
+                alert(`Welcome to the ${category} store! \n\nChoose from our latest selection of products.`);
+            }
+        } else {
+            alert(`Learn more about ${category} coming soon!`);
+        }
+    });
+});
+
+// Add event listeners for all learn more and buy buttons
+document.querySelectorAll('.product-links a, .hero-links a, .buy-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const action = this.textContent.toLowerCase().includes('buy') ? 'Purchase' : 'Learn more';
+        const product = this.closest('.product-tile, .mephone-card, .product-card, .hero')?.querySelector('h3, h1')?.textContent || 'product';
+        alert(`${action} page for ${product} coming soon!`);
+    });
+});
+
+// Add event listeners for category cards in store
+document.querySelectorAll('.category-card a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.closest('.category-card').querySelector('h3').textContent;
+        alert(`${category} store page coming soon!`);
+    });
+});
+
+// Add "Back to Home" functionality
+function showHomePage() {
+    document.querySelector('.hero').style.display = 'flex';
+    document.querySelector('.product-grid').style.display = 'grid';
+    document.getElementById('mephonePage').style.display = 'none';
+    document.querySelector('.store-container').style.display = 'none';
+}
+
+// Add click handler for logo to return to home
+document.querySelector('.nav img').addEventListener('click', function(e) {
+    e.preventDefault();
+    showHomePage();
+});
+
+// Update popstate event handler
+window.addEventListener('popstate', function(e) {
+    showHomePage();
+});
+
+// Hidden console credit
+console.log(
+  "%c Created by Sean Sovidaray ",
+  "background: #000; color: #fff; padding: 5px; border-radius: 5px;"
+);
+
+// Add metadata comment to head
+document.head.appendChild(document.createComment("Site created by Sean Sovidaray"));
+</script>
+
+</body></html>
